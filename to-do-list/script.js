@@ -29,7 +29,7 @@ Add.addEventListener('click',() =>{
             currentTasks[i].onclick =function(){
                 this.parentNode.remove();
             }
-         }
+         }  
 
          let taskcom = document.querySelectorAll('.task');
 
