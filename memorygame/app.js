@@ -102,7 +102,7 @@ const generateRandom =(size =4) =>{
     }
 
     return cardValues;
-}
+};
 
 
 
@@ -112,12 +112,12 @@ const matrixGenerator =(cardValues,size = 4)=>{
     cardValues.sort(()=> Math.random () - 0.5);
 
     for(let i = 0; i<size*size;i++){
-        gameConatiner.innerHTML +=
-        `
+        gameConatiner.innerHTML +=`
         <div class="card-conatiner" data-card-value ="${cardValues[i].name}">
-        <div class="card-before">?</div>
-        <div class="card-after">
-        <img src="${cardValues[i].image}" class="image"/>
+            <div class="card-before">?</div>
+            <div class="card-after">
+            <img src="${cardValues[i].image}" class="image"/>
+            </div>
         </div>
         `;
     }
@@ -128,14 +128,14 @@ const matrixGenerator =(cardValues,size = 4)=>{
     cards.forEach((card)=>{
         card.addEventListener('click',() =>{
             if(!card.classList.contains("matched")){
-                card.classList.add('flipped');
+                card.classList.add("flipped");
                 if(!firstCard){
                     firstCard = card;
 
                     let firstCardValue = card.getAttribute("data-card-value");
 
-                }
             }else{
+
                 movesCounter();
 
                 secondCard = card;
@@ -146,7 +146,7 @@ const matrixGenerator =(cardValues,size = 4)=>{
                     secondCard.classList.add("matched");
 
                     firstCard =false;
-                    winCount+=1;
+                    winCount += 1;
 
                     if(winCount == Math.floor(cardValues.length/2)){
                         result.innerHTML =`<h2>You Won</h2> <h4>Moves: ${movesCount}</h4>`;
@@ -163,6 +163,8 @@ const matrixGenerator =(cardValues,size = 4)=>{
                             tempsecond.classList.remove("flipped");
                         },900);
                 }
+
+              }
             }
         });
     });
@@ -184,7 +186,8 @@ startbtn.addEventListener('click',() =>{
     initaialzer();
 });
 
-stopbtn.addEventListener('click',(stopGame =()=>{
+stopbtn.addEventListener('click',
+    (stopGame =()=>{
     controls.classList.remove('hide');
     stopbtn.classList.add('hide');
     startbtn.classList.remove('hide');
